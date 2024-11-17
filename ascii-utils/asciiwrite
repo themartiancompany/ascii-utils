@@ -54,23 +54,49 @@ _ascii_view_quit() {
       q
 }
 
+_encode() {
+  local \
+    _in="${1}" \
+    _pic
+  _msg_info \
+    "in file: ${_in}"
+  _pic="$( \
+    cat \
+      "${_in}")" || \
+    true
+  _msg_info \
+    "pic size: ${#_pic}"
+  _msg_info \
+    "out file: ${_out}"
+  if [ ! -e "${_out}" ] && \
+     [[ "${_os}" == "Android" ]]; then
+    touch \
+      "${_out}" || \
+    true
+  fi
+  echo \
+    "${_pic::-30}" > \
+    "${_out}"
+}
+
+
 _android_asciiwrite() {
   local \
     _in="${1}" \
     _out="${2}"
-    # _tmp
-  # _tmp="$( \
-  #   mktemp \
-  #     --suffix=".txt")"
+     _tmp
+  _tmp="$( \
+    mktemp \
+      --suffix=".txt")"
   _close_keyboard
   _ascii_view_quit & \
   asciiview \
     "${_in}" > \
-    "${_out}"
-  # _msg_info \
-  #   "out file '${_out}', tmp file ${_tmp}"
-  # _encode \
-  #   "${_tmp}"
+    "${_tmp}"
+  _msg_info \
+    "out file '${_out}', tmp file ${_tmp}"
+  _encode \
+    "${_tmp}"
 }
 
 _linux_asciiwrite() {
@@ -85,7 +111,7 @@ _linux_asciiwrite() {
     5 \
     asciiview \
       "${_in}" 2>/dev/null 1&> \
-    "${_tmp}" || 
+    "${_out}" || 
     true
   _encode \
     "${_tmp}"
@@ -99,15 +125,18 @@ _asciiwrite() {
   _os="$( \
     uname \
       -o)"
-  if [[ "${_os}" == "Android" ]]; then
-    "_android_asciiwrite" \
-      "${_in}" \
-      "${_out}"
-  elif [[ "${_os}" == "GNU/Linux" ]]; then
-    "_linux_asciiwrite" \
-      "${_in}" \
-      "${_out}"
-  fi
+  "_linux_asciiwrite" \
+    "${_in}" \
+    "${_out}"
+  # if [[ "${_os}" == "Android" ]]; then
+  #   "_android_asciiwrite" \
+  #     "${_in}" \
+  #     "${_out}"
+  # elif [[ "${_os}" == "GNU/Linux" ]]; then
+  #   "_linux_asciiwrite" \
+  #     "${_in}" \
+  #     "${_out}"
+  # fi
 }
 
 _out_file_auto_detect(){
