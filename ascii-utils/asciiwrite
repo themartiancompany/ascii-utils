@@ -92,6 +92,7 @@ _android_asciiwrite() {
   timeout \
     5 \
     asciiview \
+      -minwidth 500 \
       "${_in}" 2>/dev/null 1&> \
     "${_tmp}" || 
     true
