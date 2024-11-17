@@ -83,7 +83,7 @@ _encode() {
 _android_asciiwrite() {
   local \
     _in="${1}" \
-    _out="${2}"
+    _out="${2}" \
      _tmp
   _tmp="$( \
     mktemp \
