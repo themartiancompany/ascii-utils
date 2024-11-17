@@ -111,7 +111,7 @@ _linux_asciiwrite() {
     5 \
     asciiview \
       "${_in}" 2>/dev/null 1&> \
-    "${_out}" || 
+    "${_tmp}" || 
     true
   _encode \
     "${_tmp}"
