@@ -46,7 +46,7 @@ _close_keyboard() {
       back
 }
 
-_caca_view_quit() {
+_ascii_view_quit() {
   sleep \
     10
   sdotool \
