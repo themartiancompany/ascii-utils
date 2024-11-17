@@ -89,10 +89,12 @@ _android_asciiwrite() {
     mktemp \
       --suffix=".txt")"
   _close_keyboard
-  _ascii_view_quit & \
-  asciiview \
-    "${_in}" > \
-    "${_tmp}"
+  timeout \
+    5 \
+    asciiview \
+      "${_in}" 2>/dev/null 1&> \
+    "${_tmp}" || 
+    true
   _msg_info \
     "out file '${_out}', tmp file ${_tmp}"
   _encode \
