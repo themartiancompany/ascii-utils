@@ -125,18 +125,15 @@ _asciiwrite() {
   _os="$( \
     uname \
       -o)"
-  "_linux_asciiwrite" \
-    "${_in}" \
-    "${_out}"
-  # if [[ "${_os}" == "Android" ]]; then
-  #   "_android_asciiwrite" \
-  #     "${_in}" \
-  #     "${_out}"
-  # elif [[ "${_os}" == "GNU/Linux" ]]; then
-  #   "_linux_asciiwrite" \
-  #     "${_in}" \
-  #     "${_out}"
-  # fi
+  if [[ "${_os}" == "Android" ]]; then
+    "_android_asciiwrite" \
+      "${_in}" \
+      "${_out}"
+  elif [[ "${_os}" == "GNU/Linux" ]]; then
+    "_linux_asciiwrite" \
+      "${_in}" \
+      "${_out}"
+  fi
 }
 
 _out_file_auto_detect(){
