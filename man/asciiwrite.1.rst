@@ -27,7 +27,7 @@ asciiwrite
 
 ----------------------------------------------------
 Display ASCII pictures and save them into files
----------------------------------------------------
+----------------------------------------------------
 :Version: asciiwrite |version|
 :Manual section: 1
 
