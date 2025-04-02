@@ -56,7 +56,7 @@ install-man:
 	$(_INSTALL_DIR) \
 	  "$(MAN_DIR)/man1"
 	rst2man \
-	  "man/${_PROJECT}.1.rst" \
-	  "$(MAN_DIR)/man1/$(_PROJECT).1"
+	  "man/asciiwrite.1.rst" \
+	  "$(MAN_DIR)/man1/asciiwrite.1"
 
 .PHONY: check install install-doc install-man install-scripts shellcheck
