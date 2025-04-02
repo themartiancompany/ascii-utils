@@ -20,9 +20,57 @@
    You should have received a copy of the GNU Affero General Public License
    along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-=====================================
-ASCII Utils Authors
-=====================================
 
-* Pellegrino Prevete <pellegrinoprevete@gmail.com>
-* Truocolo <truocolo@aol.com>
+===================
+asciiwrite
+===================
+
+----------------------------------------------------
+Display ASCII pictures and save them into files
+---------------------------------------------------
+:Version: asciiwrite |version|
+:Manual section: 1
+
+
+Synopsis
+========
+
+asciiwrite *[options]* *in_file* *(out_file)*
+
+
+Description
+===========
+
+Displays ASCII pictures using
+aview from AAlib and optionally save
+them to file, so de facto acting
+as an encoder.
+
+
+Options
+========
+
+-h                      This message.
+-c                      Enable color output
+-v                      Enable verbose output
+
+
+Bugs
+====
+
+https://github.com/themartiancompany/ascii-utils/-/issues
+
+Copyright
+=========
+
+Copyright Pellegrino Prevete. AGPL-3.0.
+
+See also
+========
+
+* libcrash-bash
+* cacaview
+* ascii-viewer
+* picture-viewer
+
+.. include:: variables.rst
